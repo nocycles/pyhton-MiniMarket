@@ -1,7 +1,7 @@
 # Python Project: Mini Market System for Transactions
 
 ### A. Requirements / Objectives
-This program is called as Mini Market System, where it can be used as a simple transaction while in a mini market. This program being created to solve the transaction process in a mini market, from adding items into basket, update items in the basket, remove item(s) in the basket, until calculating the total price of all items in the basket.
+This program is called as Mini Market System for self service cashier, where it can be used as a simple transaction while in a mini market to do a self service cashier. This program being created to solve the transaction process in a mini market, from adding items into basket, update items in the basket, remove item(s) in the basket, until calculating the total price of all items in the basket.
 
 The program initially need a field of cust_name for customer name while shopping, item_name for first item added into the basket, item_qty for the quantity of the first item added, and item_price for the price of per item quantity.
 
@@ -9,7 +9,7 @@ The program initially need a field of cust_name for customer name while shopping
 
 ### B. Flowchart of the Program
 #### B.1. First Step
-To start the program, we need to run the main.py as our main program, while the function needed in main.py imported from the class in transaction.py
+To start the program, we need to run the _main.py_ as our main program, while the function needed in _main.py_ imported from the class in _transaction.py_
 
 In order to initialize the program, we need the input value of cust_name (customer name), item_name, item_qty (item quantity), and item_price.
 
@@ -59,6 +59,44 @@ On this menu, will allow us to check all of the items being added to our shoppin
 <img src="img/img_check_item.png" width="1000"/>
 
 ##### B.9. Check total price
-On this menu, the program will show to us how much we need to pay for the transaction have been done. Preferably this menu selected while we want to finish our transaction from the mini market.
+On this menu, the program will show to us how much we need to pay for the transaction have been done. It will apply some discount if the price fulfilled the requirement of discount. Preferably this menu selected while we want to finish our transaction from the mini market.
 
 <img src="img/img_total_price.png" width="1000"/>
+
+### C. Code Description
+There are 2 code script to complete the process of mini market's self service cashier, while _main.py_ as the main script to do the self service transaction, and _transaction.py_ as the collection of function to complete the action for user.
+
+Below this paragraph, there will be explanations for every function saved in _transaction.py_
+#### C.1. Function add_item
+<img src="img/img_f_add_item.png" width="1000"/>
+In this add_item function, used for add more items into the shopping basket. There are 4 parameters to run this function; confirmation, item_name, item_qty, and item_price. If the confirmation given is yes, the process will continue to fill out the item_name, item_qty, and item_price for saving into shopping list / basket (detail_item). If the answer is no, it will return to the last shopping list / basket (detail_item).
+
+#### C.2. Function update_item_name
+<img src="img/img_f_update_item_name.png" width="1000"/>
+Function update_item_name is used to update the selected item for it's name. In this function, there are 3 parameters to run this function; confirmation, obj_update, and item_name. If the confirmation given is yes, the process will ask which item wants to be updated (obj_update) with number of index start from 1 and above, and then continue to item_name to completely change the item_name in selected item on the basket (detail_item), it will return to save into shopping list / basket (detail_item). If the answer is no, it will return to the last shopping list / basket (detail_item).
+
+#### C.3. Function update_item_qty
+<img src="img/img_f_update_item_qty.png" width="1000"/>
+Function update_item_qty is used to update the selected item for it's quantity. In this function, there are 3 parameters to run this function; confirmation, obj_update, and item_qty. If the confirmation given is yes, the process will ask which item wants to be updated (obj_update) with number of index start from 1 and above, and then continue to item_qty to completely change the item_qty in selected item on the basket (detail_item), it will return to save into shopping list / basket (detail_item). If the answer is no, it will return to the last shopping list / basket (detail_item).
+
+#### C.4. Function update_item_price
+<img src="img/img_f_update_item_price.png" width="1000"/>
+Function update_item_price is used to update the selected item for it's price. In this function, there are 3 parameters to run this function; confirmation, obj_update, and item_price. If the confirmation given is yes, the process will ask which item wants to be updated (obj_update) with number of index start from 1 and above, and then continue to item_price to completely change the item_price in selected item on the basket (detail_item), it will return to save into shopping list / basket (detail_item). If the answer is no, it will return to the last shopping list / basket (detail_item).
+
+#### C.5. Function delete_item
+<img src="img/img_f_delete_item.png" width="1000"/>
+Function delete_item is used to delete item on selected item in the shopping list / basket (detail_item). To complete this function, there are 2 parameters to run this function; confirmation and obj_delete. If the confirmation give is yes, the process will continue to ask which item wants to be deleted. Selection of which item wants to be deleted using number of index, with the start of number 1 and above. After have choosen which item want to be deleted, it will return to save into shopping list / basket (detail_item). If the answer is no, it will return to the last shopping list / basket (detail_item). 
+
+#### C.6. Function reset_transaction
+<img src="img/img_f_reset_transaction.png" width="1000"/>
+On this function, reset_transaction is used for reset all items that have been added on the shopping list / basket (detail_item), by mean this function is used to empty the shopping list / basket (detail_item). To complete this function, there is a confirmation needed to be answered by user. If the confirmation is yes, it will return the empty shopping list / basket (detail_item), and if the confirmation is no, it will return the latest shopping list / basket (detail_item).
+
+#### C.7. Function check_order
+<img src="img/img_f_check_order.png" width="1000"/>
+On this function, check_order is used for checking all items that have been added into the shopping list. This function will return all of the items with it's name, quantity, and price. In order to make user friendly for this program, items showed will be seen in a simple table.
+
+#### C.8. Function total_price
+<img src="img/img_f_total_price.png" width="1000"/>
+On this function, total_price is used for checking the final price to be paid for finishing the transaction. In this function, the price will be automatically truncated based on the discount.
+
+If the price is greater than equal of Rp 200.000, will have a discount of 5%, if the price is greater than equal of Rp 300.000, will have a discount of 8%, and if the price is greater than equal of Rp 500.000, will have a discount of 10%.
